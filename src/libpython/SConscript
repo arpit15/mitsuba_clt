@@ -1,6 +1,7 @@
 Import('env', 'sys', 'os', 'hasPython')
 
 for ver in hasPython:
+	print("PYTHON VER TARGET ADDED : ", ver)
 	sver = ver.replace('.', '')
 	python_include = list(env['PYTHON'+sver+'INCLUDE']) if env.has_key('PYTHON'+sver+'INCLUDE') else []
 	python_libdir = list(env['PYTHON'+sver+'LIBDIR']) if env.has_key('PYTHON'+sver+'LIBDIR') else []

@@ -52,7 +52,8 @@ if 'linux' in sys.platform:
 		installAs(os.path.join(distDir, 'python/'+ver+'/mitsuba.so'), 'libpython/mitsuba_python' + ver + '.so')
 	install(distDir, ['mitsuba/mitsuba', 'mitsuba/mtssrv', 'mitsuba/mtsutil'])
 	if hasQt:
-		install(distDir, ['mtsgui/mtsgui'])
+		pass
+		# install(distDir, ['mtsgui/mtsgui'])
 	if hasCollada:
 		install(distDir, ['converter/mtsimport'])
 if sys.platform == 'win32':

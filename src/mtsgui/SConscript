@@ -25,7 +25,7 @@ if hasQt:
 	qtEnv.Append(CPPPATH=['#src/mtsgui'])
 	if qtEnv.has_key('QTINCLUDE'):
 		qtEnv.Prepend(CPPPATH=qtEnv['QTINCLUDE'])
-	qtEnv.EnableQt4Modules(['QtGui', 'QtCore', 'QtOpenGL', 'QtXml', 'QtXmlPatterns', 'QtNetwork'])
+	qtEnv.EnableQt5Modules(['QtGui', 'QtCore', 'QtOpenGL', 'QtXml', 'QtXmlPatterns', 'QtNetwork'])
 
 	if sys.platform == 'win32':
 		index = qtEnv['CXXFLAGS'].index('_CONSOLE')
@@ -50,7 +50,7 @@ if hasQt:
 		qtEnv.Append(LINKFLAGS=['-Xlinker', '-rpath', '-Xlinker', '@executable_path/../Frameworks'])
 
 	bpath = env.GetBuildPath('#src/mtsgui')
-	qtInterfaces = [qtEnv.Uic4(uic) for uic in scanFiles(bpath, ['*.ui'])]
+	qtInterfaces = [qtEnv.Uic5(uic) for uic in scanFiles(bpath, ['*.ui'])]
 	qtResources = [qtEnv.Qrc(qrc) for qrc in scanFiles(bpath, ['*.qrc'])]
 	qtSources = scanFiles(bpath, ['*.cpp']) + qtResources + resources
 
